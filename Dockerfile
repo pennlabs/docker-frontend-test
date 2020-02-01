@@ -11,6 +11,6 @@ RUN apt-get update \
     && python3 get-pip.py \
         --disable-pip-version-check \
         --no-cache-dir \
-    && pip3 install pipenv \
+    && pip3 install --upgrade pip pipenv \
     && rm -f get-pip.py \
     && rm -rf /var/lib/apt/lists/*
