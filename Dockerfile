@@ -1,16 +1,16 @@
-FROM cypress/base:10
+FROM nikolaik/python-nodejs:latest
 
 LABEL maintainer="Penn Labs"
 
 ENV LC_ALL C.UTF-8
 ENV LANG C.UTF-8
 
-RUN apt-get update \
-    && apt-get install --no-install-recommends -y python3 python3-dev python3-distutils-extra default-libmysqlclient-dev build-essential \
-    && wget -qO get-pip.py "https://bootstrap.pypa.io/get-pip.py" \
-    && python3 get-pip.py \
-        --disable-pip-version-check \
-        --no-cache-dir \
-    && python3 -m pip install --upgrade pip pipenv \
-    && rm -f get-pip.py \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
+    apt-get install -y \
+    libgtk2.0-0 \
+    libnotify-dev \
+    libgconf-2-4 \
+    libnss3 \
+    libxss1 \
+    libasound2 \
+    xvfb && rm -rf /var/lib/apt/lists/*
